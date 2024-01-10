@@ -3,18 +3,32 @@
 
 generator client {
     provider = "prisma-client-js"
+    output   = "../src/generated/client"
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "postgresql"
     url      = env("DATABASE_URL")
 }
 
-model Post {
+model Food {
+    id          Int      @id @default(autoincrement())
+    name        String
+    description String
+    creator     String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    Tags        Tag[]
+
+    @@index([name])
+}
+
+model Tag {
     id        Int      @id @default(autoincrement())
-    name      String
+    title     String
+    Food      Food[]
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
-    @@index([name])
+    @@index([title])
 }
