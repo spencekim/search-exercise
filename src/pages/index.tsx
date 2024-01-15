@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function Home() {
   const [input, setInput] = useState("");
 
+  // Note: As I mentioned in my writeup, for an actual solution we would want to use an useInfiniteQuery here.
   const { data } = api.food.search.useQuery({ searchStr: input });
 
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <main className={styles.container}>
         <input
           type="text"
+          style={{ width: "500px" }}
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />

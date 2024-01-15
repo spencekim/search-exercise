@@ -12,25 +12,27 @@ async function main() {
       { title: "hearty" },
     ],
   });
+
+  // NOTE: Most systems that I have seen do not allow spaces in a username, so I replaced the spaces here with underscores.
   await prisma.food.createMany({
     data: [
       {
-        creator: "Chef Bob",
+        creator: "Chef_Bob",
         name: "Pizza",
         description: "A delicious pizza with tomatoes and mozzarella.",
       },
       {
-        creator: "Chef Nancy",
+        creator: "Chef_Nancy",
         name: "Pasta",
         description: "A heavy pasta with cream sauce.",
       },
       {
-        creator: "Chef Benjamin",
+        creator: "Chef_Benjamin",
         name: "Salad",
         description: "A light salad with lettuce and tomatoes.",
       },
       {
-        creator: "Chef Linus",
+        creator: "Chef_Linus",
         name: "Burger",
         description: "A hearty burger with beef and cheese.",
       },
